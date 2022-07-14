@@ -1,0 +1,13 @@
+{
+  "name": "literally-profanity",
+  "version": "1.0.0",
+  "description": "Profanity List",
+  "main": "index.js",
+  "repository": "git@github.com:cracked-simon/literally-profanity.git",
+  "author": "Simon Jia <simon.jia@cracked.com>",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "node-fetch": "2"
+  }
+}
