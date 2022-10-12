@@ -9,6 +9,12 @@ console.log(`Literally Media Profanity List - ${pjson.version}`);
 let thirdPartySources = fs.readFileSync('./sources.txt', {encoding:'utf8', flag:'r'});
 thirdPartySources = thirdPartySources.split("\n");
 
+thirdPartySources.forEach((thirdPartySource, index) => {
+    if (thirdPartySource.charAt(0) == '#') delete(thirdPartySources[index]);
+});
+
+console.log(thirdPartySources);
+
 let literallySource = fs.readFileSync('./literally-words.txt', {encoding:'utf8', flag:'r'});
 if (literallySource.trim() != '') {
     literallySource = literallySource.trim().split("\n");
@@ -21,8 +27,6 @@ console.log(`Fetched Source: ./literally-words.txt - Found ${literallySource.len
 let list = literallySource;
 
 async function main() {
-    
-
     await Promise.all(thirdPartySources.map(source => {
         let ext = path.extname(source);
 
@@ -47,6 +51,7 @@ async function main() {
             const finalList = [ ...new Set(list) ];
 
             fs.writeFileSync('final-list.json', JSON.stringify(finalList));
+            fs.writeFileSync('final-list.txt', finalList.join('\n'));
 
             console.log(`Total entries after deduping: ${finalList.length} @ final-list.json`.green);
         });
