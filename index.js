@@ -39,7 +39,7 @@ async function main() {
             })
             .then(body => {
                 if (ext != '.json') {
-                    body = body.split("\n");
+                    body = body.trim().split("\n");
                 }
 
                 console.log(`Fetched Source: ${source} - Found ${body.length} words`);
@@ -51,7 +51,7 @@ async function main() {
             const finalList = [ ...new Set(list) ];
 
             fs.writeFileSync('final-list.json', JSON.stringify(finalList));
-            fs.writeFileSync('final-list.txt', finalList.join('\n'));
+            fs.writeFileSync('final-list.txt', finalList.join('\n').trim());
 
             console.log(`Total entries after deduping: ${finalList.length} @ final-list.json`.green);
         });

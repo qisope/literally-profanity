@@ -1,2 +1,2 @@
 https://raw.githubusercontent.com/coffee-and-fun/google-profanity-words/main/data/list.txt
-#https://raw.githubusercontent.com/zacanger/profane-words/master/words.json
+https://raw.githubusercontent.com/zacanger/profane-words/master/words.json
